@@ -22,7 +22,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Installs the configuration file:
+
+    $ rails g clemency:install
+
+Create a new release (Generates a new release file in RAILS_ROOT/releases folder):
+
+    $ rails g clemency:release 1.1.0
+
+Migrate to a specific release:
+
+    $ rails clemency:migrate -> calls the up callback on the current release as defined in .version
+    $ rails clemency:migrate[1.1.0] -> calls the up callback on the 1.1.0 release
+    $ [NOT IMPLEMENTED] rails clemency:migrate[1.0.0-1.1.0] -> calls the up callback on all releases between 1.0.0 and 1.1.0
+
+Rollback to a specific release:
+
+    $ rails clemency:rollback -> calls the down callback on the current release as defined in .version
+    $ rails clemency:rollback[1.1.0] -> calls the down callback on the 1.1.0 release
+    $ [NOT IMPLEMENTED] rails clemency:rollback[1.1.0-1.0.0] -> calls the down callback on all releases between 1.1.0 and 1.0.0
+
+Generate a changelog for a specific release:
+
+    $ rails clemency:changelog -> generates a changelog the current release as defined in .version
+    $ rails clemency:changelog[1.1.0] -> generates a changelog for the 1.1.0 release
+    $ [NOT IMPLEMENTED] rails clemency:changelog[1.1.0-1.0.0] -> generates a changelog for all releases between 1.1.0 and 1.0.0
+
+## TODO
+
+- add more specs
+- implement rake tasks that execute a series of release tasks
 
 ## Development
 
@@ -32,7 +61,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/clemency.
+Bug reports and pull requests are welcome on GitHub at https://github.com/leftplusrightllc/clemency.
 
 ## License
 
