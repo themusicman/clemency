@@ -1,7 +1,6 @@
 require 'rails/generators/base'
 
 module Clemency
-  module Generators
     class InstallGenerator < Rails::Generators::Base
 
       desc "Installs Clemency's configuration file"
@@ -27,5 +26,4 @@ end)
         create_file "config/clemency.rb", config_file
       end
     end
-  end
 end
