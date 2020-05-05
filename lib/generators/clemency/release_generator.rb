@@ -1,7 +1,6 @@
 require 'rails/generators/base'
 
 module Clemency
-  module Generators
     class ReleaseGenerator < Rails::Generators::Base
       argument :version, required: true
 
@@ -25,5 +24,4 @@ end)
         create_file ".version", "#{version}"
       end
     end
-  end
 end
